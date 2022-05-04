@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "AppShopping_Utilities/1.0.0": {
+        "runtime": {
+          "AppShopping_Utilities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AppShopping_Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
