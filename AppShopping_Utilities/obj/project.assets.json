@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
+      "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
       "projectName": "AppShopping_Utilities",
-      "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
+      "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
       "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-      "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\obj\\",
+      "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -7,15 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_Api", "AppShopp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Infracstructure", "1. Infracstructure", "{EC8FB8D2-AE1E-45F9-A0DC-D1378C951796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_Utilities", "..\AppShopping_Utilities\AppShopping_Utilities.csproj", "{5CA34676-D1B8-49A8-858A-DAA4166B2598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_Utilities", "..\AppShopping_Utilities\AppShopping_Utilities.csproj", "{5CA34676-D1B8-49A8-858A-DAA4166B2598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_ViewModels", "..\AppShopping_ViewModels\AppShopping_ViewModels.csproj", "{A48F4DEF-3D91-43B8-BA1F-F71FE05437A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_ViewModels", "..\AppShopping_ViewModels\AppShopping_ViewModels.csproj", "{A48F4DEF-3D91-43B8-BA1F-F71FE05437A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{84FE4262-2C92-4BC8-8480-97FC4690E4A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_Application", "..\AppShopping_Application\AppShopping_Application.csproj", "{93AACA09-7C9B-4B78-BEF2-3A213CE658C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_Application", "..\AppShopping_Application\AppShopping_Application.csproj", "{93AACA09-7C9B-4B78-BEF2-3A213CE658C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_Data", "..\AppShopping_Data\AppShopping_Data.csproj", "{4729E630-9A2A-45F2-A795-607C922E3430}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_Data", "..\AppShopping_Data\AppShopping_Data.csproj", "{4729E630-9A2A-45F2-A795-607C922E3430}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Host", "3. Host", "{24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_AdminApp", "..\AppShopping_AdminApp\AppShopping_AdminApp.csproj", "{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_ApiIntegration", "..\AppShopping_ApiIntegration\AppShopping_ApiIntegration.csproj", "{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,15 +49,26 @@ Global
 		{4729E630-9A2A-45F2-A795-607C922E3430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4729E630-9A2A-45F2-A795-607C922E3430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4729E630-9A2A-45F2-A795-607C922E3430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{1D46BC12-6751-4F10-8710-A5447F0E2621} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
 		{5CA34676-D1B8-49A8-858A-DAA4166B2598} = {EC8FB8D2-AE1E-45F9-A0DC-D1378C951796}
 		{A48F4DEF-3D91-43B8-BA1F-F71FE05437A4} = {EC8FB8D2-AE1E-45F9-A0DC-D1378C951796}
 		{93AACA09-7C9B-4B78-BEF2-3A213CE658C4} = {84FE4262-2C92-4BC8-8480-97FC4690E4A2}
 		{4729E630-9A2A-45F2-A795-607C922E3430} = {84FE4262-2C92-4BC8-8480-97FC4690E4A2}
+		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
+		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F435A3A-8A95-41DD-A450-D9D0D779D711}

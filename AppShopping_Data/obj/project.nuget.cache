@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0JES0jhwxj3XEofy02h7u2DHYhJUVUGQtC8gKTJEkkr3vJTfodzfOIsZy10iygdt/DsuiidKFJI32/9ciQkPlg==",
+  "dgSpecHash": "yWQCDOEMPnYU/kkxeH9ZBejFaNyUQ6tQ6/GSUqM6KT+YPoRD+82zTAMs5bHBuQAXaXYEfRR/mziHhNmrRp6faQ==",
   "success": true,
-  "projectFilePath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj",
+  "projectFilePath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lequo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lequo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.16\\microsoft.aspnetcore.cryptography.internal.5.0.16.nupkg.sha512",

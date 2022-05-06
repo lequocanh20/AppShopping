@@ -15,5 +15,7 @@ namespace AppShopping_ViewModels.Systems.Users
         public string Email { get; set; }
         public string Address { get; set; }
         public string Roles { get; set; }
+
+        public bool LockEnable { get; set; }
     }
 }

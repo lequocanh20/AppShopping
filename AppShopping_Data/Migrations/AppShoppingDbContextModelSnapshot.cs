@@ -77,7 +77,7 @@ namespace AppShopping_Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "c23b07b6-ade5-4b61-9bef-22b2cb7f8c8a",
+                            ConcurrencyStamp = "bd690244-dcc1-4055-9b0b-74196b0ffcc5",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -150,14 +150,14 @@ namespace AppShopping_Data.Migrations
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
                             Address = "123 Lien Ap 2-6 X.Vinh Loc A H. Binh Chanh",
-                            ConcurrencyStamp = "058331ed-0f8f-4dc0-b288-5986959371fe",
+                            ConcurrencyStamp = "7caab3b5-714d-48b7-a040-793ee14558f4",
                             Email = "lequocanh.qa@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Quoc Anh",
                             NormalizedEmail = "lequocanh.qa@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGK7mxatEARpyK4WPARWaHtLa9WOMbK4rSSqwPJAfi10oI474xVcXjCzkSg/cQUgTQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF8KzkxDb9IhKYbwg9uIpgv2ZUzP/jQekEydhB6+iGuxjlt/K1aF1BEq68fN1PXfuw==",
                             PhoneNumber = "0774642207",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
@@ -191,33 +191,124 @@ namespace AppShopping_Data.Migrations
                         new
                         {
                             Id = 1,
-                            ImageCate = "assets/images/ic_circlek.png",
+                            ImageCate = "assets/images/dw.png",
                             Name = "Daniel Wellington"
                         },
                         new
                         {
                             Id = 2,
-                            ImageCate = "assets/images/ic_ministop.png",
+                            ImageCate = "assets/images/casio.png",
                             Name = "Casio"
                         },
                         new
                         {
                             Id = 3,
-                            ImageCate = "assets/images/ic_highland.jpeg",
+                            ImageCate = "assets/images/citizen.png",
                             Name = "Citizen"
                         },
                         new
                         {
                             Id = 4,
-                            ImageCate = "assets/images/ic_seveneleven.png",
+                            ImageCate = "assets/images/seiko.png",
                             Name = "Seiko"
                         },
                         new
                         {
                             Id = 5,
-                            ImageCate = "assets/images/ic_vinmart.jpg",
+                            ImageCate = "assets/images/orient.png",
                             Name = "Orient"
                         });
+                });
+
+            modelBuilder.Entity("AppShopping_Data.Entities.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Describe")
+                        .IsRequired()
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)");
+
+                    b.Property<int>("Promotion")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons");
+                });
+
+            modelBuilder.Entity("AppShopping_Data.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CouponId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipPhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CouponId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("AppShopping_Data.Entities.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("AppShopping_Data.Entities.Product", b =>
@@ -245,10 +336,6 @@ namespace AppShopping_Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("OriginPrice")
-                        .HasMaxLength(100000000)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal>("Price")
                         .HasMaxLength(100000000)
                         .HasColumnType("decimal(18,2)");
@@ -262,6 +349,10 @@ namespace AppShopping_Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("int")
                         .HasDefaultValue(0);
+
+                    b.Property<decimal>("originPrice")
+                        .HasMaxLength(100000000)
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -277,10 +368,10 @@ namespace AppShopping_Data.Migrations
                             DateCreated = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Đồng hồ mang thương hiệu Daniel Wellington",
                             Name = "DANIEL WELLINGTON DW00100414",
-                            OriginPrice = 6000000m,
                             Price = 6600000m,
                             ProductImage = "assets/foods/ic_black_coffee.png",
-                            Stock = 5
+                            Stock = 5,
+                            originPrice = 6000000m
                         },
                         new
                         {
@@ -289,10 +380,10 @@ namespace AppShopping_Data.Migrations
                             DateCreated = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Đồng hồ mang thương hiệu Casio",
                             Name = "CASIO EFB-302JD-1ADR",
-                            OriginPrice = 10000000m,
                             Price = 10882000m,
                             ProductImage = "assets/foods/ic_black_coffee.png",
-                            Stock = 5
+                            Stock = 5,
+                            originPrice = 10000000m
                         },
                         new
                         {
@@ -301,10 +392,10 @@ namespace AppShopping_Data.Migrations
                             DateCreated = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Đồng hồ mang thương hiệu Citizen",
                             Name = "CITIZEN NB1021-57E",
-                            OriginPrice = 14000000m,
                             Price = 14700000m,
                             ProductImage = "assets/foods/ic_black_coffee.png",
-                            Stock = 5
+                            Stock = 5,
+                            originPrice = 14000000m
                         },
                         new
                         {
@@ -313,10 +404,10 @@ namespace AppShopping_Data.Migrations
                             DateCreated = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Đồng hồ mang thương hiệu Seiko",
                             Name = "SEIKO SSB361P1",
-                            OriginPrice = 6000000m,
                             Price = 6625000m,
                             ProductImage = "assets/foods/ic_black_coffee.png",
-                            Stock = 5
+                            Stock = 5,
+                            originPrice = 6000000m
                         },
                         new
                         {
@@ -325,10 +416,10 @@ namespace AppShopping_Data.Migrations
                             DateCreated = new DateTime(2021, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Đồng hồ mang thương hiệu Orient",
                             Name = "ORIENT RA-AR0001S10B",
-                            OriginPrice = 9000000m,
                             Price = 10170000m,
                             ProductImage = "assets/foods/ic_black_coffee.png",
-                            Stock = 5
+                            Stock = 5,
+                            originPrice = 9000000m
                         });
                 });
 
@@ -526,6 +617,40 @@ namespace AppShopping_Data.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
+            modelBuilder.Entity("AppShopping_Data.Entities.Order", b =>
+                {
+                    b.HasOne("AppShopping_Data.Entities.Coupon", "Coupon")
+                        .WithMany("Orders")
+                        .HasForeignKey("CouponId");
+
+                    b.HasOne("AppShopping_Data.Entities.AppUser", "AppUser")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Coupon");
+                });
+
+            modelBuilder.Entity("AppShopping_Data.Entities.OrderDetail", b =>
+                {
+                    b.HasOne("AppShopping_Data.Entities.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AppShopping_Data.Entities.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("AppShopping_Data.Entities.Product", b =>
                 {
                     b.HasOne("AppShopping_Data.Entities.Category", "Category")
@@ -558,6 +683,8 @@ namespace AppShopping_Data.Migrations
 
             modelBuilder.Entity("AppShopping_Data.Entities.AppUser", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("Reviews");
                 });
 
@@ -566,8 +693,20 @@ namespace AppShopping_Data.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("AppShopping_Data.Entities.Coupon", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("AppShopping_Data.Entities.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("AppShopping_Data.Entities.Product", b =>
                 {
+                    b.Navigation("OrderDetails");
+
                     b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {}
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {}
   },
   "projects": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj",
         "projectName": "AppShopping_Data",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",

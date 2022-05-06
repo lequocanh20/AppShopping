@@ -1,4 +1,5 @@
 ﻿using AppShopping_Application.Catalog.Products;
+using AppShopping_ViewModels.Catalog.Products;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,87 @@ namespace AppShopping_Api.Controllers
         public async Task<IActionResult> GetFeaturedProducts(int take)
         {
             var product = await _productService.GetFeaturedProducts(take);
+            return Ok(product);
+        }
+
+        [HttpPost("addReview")]
+        public async Task<IActionResult> AddReview([FromBody] ProductDetailViewModel model)
+        {
+            var result = await _productService.AddReview(model);
+            if (result == 0)
+            {
+                return BadRequest();
+            }
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        [Authorize]
+        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
+        {
+            //kiểm tra validation
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var productId = await _productService.Create(request);
+            if (productId == 0)
+            {
+                return BadRequest();
+            }
+
+            var product = await _productService.GetById(productId);
+
+            return CreatedAtAction(nameof(GetById), new { id = productId }, product);
+        }
+
+        // HttpPut: update toàn phần
+        [HttpPut("{productId}")]
+        [Consumes("multipart/form-data")]
+        [Authorize]
+        public async Task<IActionResult> Update([FromRoute] int productId, [FromForm] ProductUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            request.Id = productId;
+            var affectedResult = await _productService.Update(request);
+            if (affectedResult == 0)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var affectedResult = await _productService.Delete(id);
+            if (affectedResult == 0)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageProductPagingRequest request)
+        {
+            var product = await _productService.GetAllPaging(request);
+            return Ok(product);
+        }
+
+        [HttpGet("pagingByCategory")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllByCategoryPaging([FromQuery] GetPublicProductPagingRequest request)
+        {
+            var product = await _productService.GetAllByCategoryId(request);
             return Ok(product);
         }
     }

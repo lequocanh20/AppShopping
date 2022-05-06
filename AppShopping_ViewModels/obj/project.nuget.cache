@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "vVya2Q9eBcgEd3jHqTfJfa3C+ZzjJVUc8Y4Y0rSx2Wz8nh4WcJwgp2YD8Q1gF0bG04cZPBb7LmzqSCsO91eTUA==",
+  "dgSpecHash": "xqytcrqrSYI/4GLjdYxUmvNSViL5mV0hgGCYciuWNvEa5ZRyug/ay6ZO6MjAMWghQixGAqJgWlajqSt34faGkw==",
   "success": true,
-  "projectFilePath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lequo\\.nuget\\packages\\fluentvalidation\\11.0.0\\fluentvalidation.11.0.0.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.0\\fluentvalidation.aspnetcore.11.0.0.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.0\\fluentvalidation.dependencyinjectionextensions.11.0.0.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.16\\microsoft.aspnetcore.http.features.5.0.16.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\lequo\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -2,6 +2,44 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "FluentValidation/11.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.dll": {}
+        }
+      },
+      "FluentValidation.AspNetCore/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.0.0",
+          "FluentValidation.DependencyInjectionExtensions": "11.0.0"
+        },
+        "compile": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.0.0",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -196,16 +234,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "Microsoft.AspNetCore.Http.Features/5.0.16": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.2.0"
+          "Microsoft.Extensions.Primitives": "5.0.1",
+          "System.IO.Pipelines": "5.0.2"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {}
         }
       },
       "Microsoft.AspNetCore.Identity/2.2.0": {
@@ -659,7 +698,7 @@
           "lib/net5.0/Microsoft.Extensions.Options.dll": {}
         }
       },
-      "Microsoft.Extensions.Primitives/5.0.0": {
+      "Microsoft.Extensions.Primitives/5.0.1": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
@@ -1243,6 +1282,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Pipelines/5.0.2": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -1942,6 +1990,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "AppShopping_Data": "1.0.0",
+          "AppShopping_Utilities": "1.0.0",
           "AppShopping_ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0"
         },
@@ -1982,6 +2031,10 @@
       "AppShopping_ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FluentValidation.AspNetCore": "11.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.16"
+        },
         "compile": {
           "bin/placeholder/AppShopping_ViewModels.dll": {}
         },
@@ -1992,6 +2045,63 @@
     }
   },
   "libraries": {
+    "FluentValidation/11.0.0": {
+      "sha512": "cD0VaOQfVZGxp3UFBDET5KztMe1W0QUgk7vP/e1zus0ofALqab5/B5S319+XEFvhw0KEStS3yfCDGpvQM10C6A==",
+      "type": "package",
+      "path": "fluentvalidation/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.0.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/11.0.0": {
+      "sha512": "Ld0kH/0BJXxF4vHlZRtpjghGA8eElOn/imgqYcFPJ602gVQcSDmsENxjHZx4kx/U89fNWwTA6Z2bcJcewm3DrQ==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.aspnetcore.11.0.0.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/net5.0/FluentValidation.AspNetCore.dll",
+        "lib/net5.0/FluentValidation.AspNetCore.xml",
+        "lib/net6.0/FluentValidation.AspNetCore.dll",
+        "lib/net6.0/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.0.0": {
+      "sha512": "jBQjbAxpXWnoalvGKTLyUoArNJ1dnIpxOknENxa7XuXHMy80Gc+VNJk5OoOpVX8JfhpZkLQOaPozycGVtUo7Tg==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.11.0.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "sha512": "b0R9X7L6zMqNsssKDvhYHuNi5x0s4DyHTeXybIAyGaitKiW1Q5aAGKdV2codHPiePv9yHfC9hAMyScXQ/xXhPw==",
       "type": "package",
@@ -2188,16 +2298,22 @@
         "microsoft.aspnetcore.http.extensions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Features/2.2.0": {
-      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+    "Microsoft.AspNetCore.Http.Features/5.0.16": {
+      "sha512": "1QU3LxQr9F5bfmfakJ9FcAG/sOHIA3WZXIQviN+QDP1TsrWzcZ34CLO/IjauLJtO6lYJeXObpCA40lNJfqXbGQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "path": "microsoft.aspnetcore.http.features/5.0.16",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.5.0.16.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
@@ -2877,10 +2993,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/5.0.0": {
-      "sha512": "cI/VWn9G1fghXrNDagX9nYaaB/nokkZn0HYAawGaELQrl8InSezfe9OnfPZLcJq3esXxygh3hkq2c3qoV3SDyQ==",
+    "Microsoft.Extensions.Primitives/5.0.1": {
+      "sha512": "5WPSmL4YeP7eW+Vc8XZ4DwjYWBAiSwDV9Hm63JJWcz1Ie3Xjv4KuJXzgCstj48LkLfVCYa7mLcx7y+q6yqVvtw==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/5.0.0",
+      "path": "microsoft.extensions.primitives/5.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2893,7 +3009,7 @@
         "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.5.0.1.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -4400,6 +4516,32 @@
         "ref/xamarinwatchos10/_._",
         "system.io.filesystem.primitives.4.3.0.nupkg.sha512",
         "system.io.filesystem.primitives.nuspec"
+      ]
+    },
+    "System.IO.Pipelines/5.0.2": {
+      "sha512": "Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+      "type": "package",
+      "path": "system.io.pipelines/5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.IO.Pipelines.dll",
+        "lib/net461/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
+        "lib/netstandard1.3/System.IO.Pipelines.dll",
+        "lib/netstandard1.3/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
+        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.5.0.2.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Linq/4.3.0": {
@@ -6662,11 +6804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj",
+      "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Api\\AppShopping_Api.csproj",
       "projectName": "AppShopping_Api",
-      "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj",
+      "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Api\\AppShopping_Api.csproj",
       "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-      "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\obj\\",
+      "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6683,14 +6825,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj": {
-              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj"
+            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj": {
+              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj"
             },
-            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {
-              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj"
+            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {
+              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj"
             },
-            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
-              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj"
+            "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
+              "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj"
             }
           }
         }

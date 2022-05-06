@@ -59,35 +59,35 @@ namespace AppShopping_Data.Extensions
                 {
                     Id = 1,
                     Name = "Daniel Wellington",
-                    ImageCate = "assets/images/ic_circlek.png"
+                    ImageCate = "assets/images/dw.png"
                 },
 
                 new Category()
                 {
                     Id = 2,
                     Name = "Casio",
-                    ImageCate = "assets/images/ic_ministop.png"
+                    ImageCate = "assets/images/casio.png"
                 },
 
                 new Category()
                 {
                     Id = 3,
                     Name = "Citizen",
-                    ImageCate = "assets/images/ic_highland.jpeg"
+                    ImageCate = "assets/images/citizen.png"
                 },
 
                 new Category()
                 {
                     Id = 4,
                     Name = "Seiko",
-                    ImageCate = "assets/images/ic_seveneleven.png"
+                    ImageCate = "assets/images/seiko.png"
                 },
 
                 new Category()
                 {
                     Id = 5,
                     Name = "Orient",
-                    ImageCate = "assets/images/ic_vinmart.jpg"
+                    ImageCate = "assets/images/orient.png"
                 }
               );
             #endregion
@@ -99,7 +99,7 @@ namespace AppShopping_Data.Extensions
                     Id = 1,
                     Name = "DANIEL WELLINGTON DW00100414",
                     CategoryId = 1,
-                    OriginPrice = 6000000,
+                    originPrice = 6000000,
                     Price = 6600000,
                     Stock = 5,
                     Description = "Đồng hồ mang thương hiệu Daniel Wellington",
@@ -115,7 +115,7 @@ namespace AppShopping_Data.Extensions
                     Id = 2,
                     Name = "CASIO EFB-302JD-1ADR",
                     CategoryId = 2,
-                    OriginPrice = 10000000,
+                    originPrice = 10000000,
                     Price = 10882000,
                     Stock = 5,
                     DateCreated = new DateTime(2021, 11, 18),
@@ -128,7 +128,7 @@ namespace AppShopping_Data.Extensions
                     Id = 3,
                     Name = "CITIZEN NB1021-57E",
                     CategoryId = 3,
-                    OriginPrice = 14000000,
+                    originPrice = 14000000,
                     Price = 14700000,
                     Stock = 5,
                     DateCreated = new DateTime(2021, 11, 18),
@@ -141,7 +141,7 @@ namespace AppShopping_Data.Extensions
                     Id = 4,
                     Name = "SEIKO SSB361P1",
                     CategoryId = 4,
-                    OriginPrice = 6000000,
+                    originPrice = 6000000,
                     Price = 6625000,
                     Stock = 5,
                     DateCreated = new DateTime(2021, 11, 18),
@@ -154,7 +154,7 @@ namespace AppShopping_Data.Extensions
                     Id = 5,
                     Name = "ORIENT RA-AR0001S10B",
                     CategoryId = 5,
-                    OriginPrice = 9000000,
+                    originPrice = 9000000,
                     Price = 10170000,
                     Stock = 5,
                     DateCreated = new DateTime(2021, 11, 18),

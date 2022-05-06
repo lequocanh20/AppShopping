@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj": {}
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\appShopping_Api\\AppShopping_Api.csproj": {}
   },
   "projects": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\appShopping_Api\\AppShopping_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\appShopping_Api\\AppShopping_Api.csproj",
         "projectName": "AppShopping_Api",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\AppShopping_Api.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\appShopping_Api\\AppShopping_Api.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Api\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\appShopping_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,14 +28,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj": {
-                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj"
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj"
               },
-              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {
-                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj"
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj"
               },
-              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
-                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj"
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj",
         "projectName": "AppShopping_Application",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\AppShopping_Application.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\AppShopping_Application.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Application\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -109,11 +109,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {
-                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj"
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj"
               },
-              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
-                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj"
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj"
+              },
+              "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
+                "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj"
               }
             }
           }
@@ -152,14 +155,14 @@
         }
       }
     },
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj",
         "projectName": "AppShopping_Data",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\AppShopping_Data.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\AppShopping_Data.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Data\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -240,14 +243,14 @@
         }
       }
     },
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
         "projectName": "AppShopping_Utilities",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\AppShopping_Utilities.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_Utilities\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_Utilities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -294,14 +297,14 @@
         }
       }
     },
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
         "projectName": "AppShopping_ViewModels",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -329,6 +332,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

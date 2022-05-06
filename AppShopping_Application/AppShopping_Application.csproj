@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AppShopping_Data\AppShopping_Data.csproj" />
+    <ProjectReference Include="..\AppShopping_Utilities\AppShopping_Utilities.csproj" />
     <ProjectReference Include="..\AppShopping_ViewModels\AppShopping_ViewModels.csproj" />
   </ItemGroup>
 

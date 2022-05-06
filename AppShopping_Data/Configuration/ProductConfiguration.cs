@@ -21,7 +21,7 @@ namespace AppShopping_Data.Configuration
 
             builder.Property(x => x.Price).IsRequired().HasMaxLength(100000000);
 
-            builder.Property(x => x.OriginPrice).IsRequired().HasMaxLength(100000000);
+            builder.Property(x => x.originPrice).IsRequired().HasMaxLength(100000000);
 
             builder.Property(x => x.Stock).IsRequired().HasDefaultValue(0).HasMaxLength(100);
 

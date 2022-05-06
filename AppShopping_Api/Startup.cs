@@ -1,9 +1,13 @@
 using AppShopping_Application.Catalog.Categories;
 using AppShopping_Application.Catalog.Products;
+using AppShopping_Application.Common;
+using AppShopping_Application.Systems.Roles;
 using AppShopping_Application.Systems.Users;
 using AppShopping_Data.EF;
 using AppShopping_Data.Entities;
 using AppShopping_Utilities.Constants;
+using AppShopping_ViewModels.Systems.Users;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,8 +40,6 @@ namespace AppShopping_Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
             services.AddDbContext<AppShoppingDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
             services.AddIdentity<AppUser, AppRole>(options =>
@@ -51,12 +53,15 @@ namespace AppShopping_Api
             })
                .AddEntityFrameworkStores<AppShoppingDbContext>()
                .AddDefaultTokenProviders();
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger App Shopping", Version = "v1" });
@@ -119,9 +124,14 @@ namespace AppShopping_Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger App Shopping V1"); });
+                app.UseDeveloperExceptionPage();              
+            }
+
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
@@ -131,9 +141,14 @@ namespace AppShopping_Api
 
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger App Shopping V1"); });
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

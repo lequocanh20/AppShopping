@@ -2,6 +2,7 @@
 using AppShopping_Data.Entities;
 using AppShopping_ViewModels.Common;
 using AppShopping_ViewModels.Systems.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -196,6 +197,169 @@ namespace AppShopping_Application.Systems.Users
             }
 
             return new ApiSuccessResult<UserViewModel>(userVm);
+        }
+
+        public async Task<ApiResult<bool>> Delete(Guid id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("User không tồn tại");
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+                return new ApiSuccessResult<bool>();
+            else
+                return new ApiErrorResult<bool>("Xóa không thành công");
+        }
+
+        public async Task<List<UserViewModel>> GetAll()
+        {
+            var query = from c in _userManager.Users
+                        select new { c };
+
+            return await query.Select(x => new UserViewModel()
+            {
+                Id = x.c.Id,
+                Name = x.c.Name,
+                UserName = x.c.UserName,
+                PhoneNumber = x.c.PhoneNumber,
+                Email = x.c.Email,
+                Address = x.c.Address
+            }).ToListAsync();
+        }
+
+        [AllowAnonymous]
+        public async Task<ApiResult<UserViewModel>> GetByUserName(string userName)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user == null)
+            {
+                return new ApiErrorResult<UserViewModel>("User không tồn tại");
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var userVm = new UserViewModel()
+            {
+                UserName = user.UserName,
+                Address = user.Address,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Name = user.Name,
+                Id = user.Id,
+            };
+
+            if (roles.Count == 0)
+            {
+                userVm.Roles = "customer";
+            }
+            else
+            {
+                foreach (var role in roles)
+                {
+                    userVm.Roles = role.ToString();
+                }
+            }
+
+            return new ApiSuccessResult<UserViewModel>(userVm);
+        }
+
+        // Phương thức tìm kiếm
+        public async Task<ApiResult<PagedResult<UserViewModel>>> GetUsersPaging(GetUserPagingRequest request)
+        {
+            var query = _userManager.Users;
+            if (!string.IsNullOrEmpty(request.Keyword))
+            {
+                query = query.Where(x => x.UserName.Contains(request.Keyword)
+                 || x.PhoneNumber.Contains(request.Keyword) || x.Email.Contains(request.Keyword));
+            }
+
+            //3. Paging
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(x => new UserViewModel()
+                {
+                    LockEnable = x.LockoutEnabled,
+                    Email = x.Email,
+                    PhoneNumber = x.PhoneNumber,
+                    UserName = x.UserName,
+                    Name = x.Name,
+                    Id = x.Id,
+                }).ToListAsync();
+
+            //4. Select and projection
+            var pagedResult = new PagedResult<UserViewModel>()
+            {
+                TotalRecords = totalRow,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                Items = data
+            };
+            return new ApiSuccessResult<PagedResult<UserViewModel>>(pagedResult);
+        }
+
+        public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("Tài khoản không tồn tại");
+            }
+
+            /* Khi gán quyền, người dùng bấm lưu lại thì kiểm tra xem role nào đã bỏ chọn
+             * Sau đó lấy ra danh sách role đã bỏ chọn ( selected == false )
+             * Dựa vào danh sách này sẽ tương tác với db và remove các role đã bị bỏ chọn khỏi user
+             */
+            var removedRoles = request.Roles.Where(x => x.Selected == false).Select(x => x.Name).ToList();
+            foreach (var roleName in removedRoles)
+            {
+                if (await _userManager.IsInRoleAsync(user, roleName) == true)
+                {
+                    await _userManager.RemoveFromRoleAsync(user, roleName);
+                }
+            }
+            await _userManager.RemoveFromRolesAsync(user, removedRoles);
+
+            /* Khi gán quyền, người dùng bấm lưu lại thì kiểm tra xem role nào đã được chọn
+            * Sau đó lấy ra danh sách role đã được chọn ( selected == true )
+            * Dựa vào danh sách này sẽ tương tác với db và add các role đã được chọn cho user
+            */
+            var addedRoles = request.Roles.Where(x => x.Selected == true).Select(x => x.Name).ToList();
+            foreach (var roleName in addedRoles)
+            {
+                if (await _userManager.IsInRoleAsync(user, roleName) == false)
+                {
+                    await _userManager.AddToRoleAsync(user, roleName);
+                }
+            }
+            return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request)
+        {
+            // AnyAsync: bất cứ object nào mà thỏa mãn điều kiện thì sẽ trả về true
+            if (await _userManager.Users.AnyAsync(x => x.Email == request.Email && x.Id != id))
+            {
+                return new ApiErrorResult<bool>("Email đã tồn tại");
+            }
+
+            // Phải to string id vì FindByIdAsync nhận tham số kiểu string
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            user.Email = request.Email;
+            user.Name = request.Name;
+            user.PhoneNumber = request.PhoneNumber;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return new ApiSuccessResult<bool>();
+            }
+            return new ApiErrorResult<bool>("Cập nhật không thành công");
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {}
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {}
   },
   "projects": {
-    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
+    "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
+        "projectUniqueName": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
         "projectName": "AppShopping_ViewModels",
-        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
+        "projectPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\AppShopping_ViewModels.csproj",
         "packagesPath": "C:\\Users\\lequo\\.nuget\\packages\\",
-        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping_ViewModels\\obj\\",
+        "outputPath": "D:\\Do an\\Nam 4\\TH Flutter\\AppShopping\\AppShopping_ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lequo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

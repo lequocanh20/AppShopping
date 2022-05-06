@@ -1,4 +1,5 @@
-﻿using AppShopping_ViewModels.Catalog.Reviews;
+﻿using AppShopping_ViewModels.Catalog.Categories;
+using AppShopping_ViewModels.Catalog.Reviews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace AppShopping_ViewModels.Catalog.Products
     public class ProductViewModel
     {
         public int Id { set; get; }
-        public decimal OriginPrice { set; get; }
+        public decimal originPrice { set; get; }
         public decimal Price { set; get; }
         public int CategoryId { set; get; }
         public int Stock { set; get; }
@@ -19,7 +20,7 @@ namespace AppShopping_ViewModels.Catalog.Products
         public string Description { set; get; }
         public string ProductImage { get; set; }
         public double Rating { get; set; }
-        //public CategoryViewModel Category { get; set; }
+        public CategoryViewModel Category { get; set; }
         public List<ReviewViewModel> Reviews { get; set; }
     }
 }

@@ -27,6 +27,9 @@ namespace AppShopping_Data.EF
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new ReviewConfiguration());
+            builder.ApplyConfiguration(new OrderConfiguration());
+            builder.ApplyConfiguration(new OrderDetailConfiguration());
+            builder.ApplyConfiguration(new CouponConfiguration());
 
             builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
 
@@ -48,5 +51,8 @@ namespace AppShopping_Data.EF
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
     }
 }
