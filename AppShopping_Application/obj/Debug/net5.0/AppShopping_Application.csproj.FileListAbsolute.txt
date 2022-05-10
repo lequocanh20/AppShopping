@@ -34,3 +34,5 @@ D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\obj\Debug\net5.0\A
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\obj\Debug\net5.0\ref\AppShopping_Application.dll
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\bin\Debug\net5.0\AppShopping_Utilities.dll
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\bin\Debug\net5.0\AppShopping_Utilities.pdb
+D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\bin\Debug\net5.0\EmailService.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_Application\bin\Debug\net5.0\EmailService.pdb

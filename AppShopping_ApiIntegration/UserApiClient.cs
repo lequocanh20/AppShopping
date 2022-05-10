@@ -207,5 +207,31 @@ namespace AppShopping_ApiIntegration
             }
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
+
+        public async Task<ApiResult<bool>> ConfirmEmail(ConfirmEmailViewModel model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            // BaseAddress lấy trong appsettings.Development.json bằng Configuratrion
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"/api/users/confirmEmail", httpContent);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Deserialize thành 1 object cùng type với return type BackendApi trả về ở đây là ApiSuccessResult
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            }
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
+        }
     }
 }

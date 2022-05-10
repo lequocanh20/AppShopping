@@ -1,13 +1,16 @@
 ﻿using AppShopping_Application.Systems.Users;
 using AppShopping_ViewModels.Systems.Users;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using MimeKit;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -21,11 +24,13 @@ namespace AppShopping_Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
+        private IHostingEnvironment _env;
 
-        public UsersController(IUserService userService, IConfiguration configuration)
+        public UsersController(IUserService userService, IConfiguration configuration, IHostingEnvironment env)
         {
             _userService = userService;
             _configuration = configuration;
+            _env = env;
         }
 
         [HttpPost("authenticate")]
@@ -62,8 +67,28 @@ namespace AppShopping_Api.Controllers
             {
                 return BadRequest(result);
             }
+            var user = await _userService.GetByUserName(request.UserName);
+            var confirmationLink = Url.ActionLink("ConfirmedEmail", "ConfirmEmail", new { token = result.ResultObj, email = user.ResultObj.Email }, "https", Request.Host.Host + ":" + "5002");
+
+            var email = new EmailService.EmailService();
+
+            var pathToFile = _env.WebRootPath
+                            + Path.DirectorySeparatorChar.ToString()
+                            + "TemplateEmail"
+                            + Path.DirectorySeparatorChar.ToString()
+                            + "Register_Confirm.html";
+
+            var builder = new BodyBuilder();
+            using (StreamReader SourceReader = System.IO.File.OpenText(pathToFile))
+            {
+                builder.HtmlBody = SourceReader.ReadToEnd();
+            }
+
+            builder.HtmlBody = builder.HtmlBody.Replace("[name]", user.ResultObj.Name).Replace("[verification link]", confirmationLink);
+            email.Send("lequocanh.qa@gmail.com", user.ResultObj.Email, "XÁC NHẬN TÀI KHOẢN", string.Format(builder.HtmlBody));
             return Ok(result);
         }
+      
 
         [HttpGet("{token}")]
         [Authorize]
@@ -141,6 +166,18 @@ namespace AppShopping_Api.Controllers
         {
             var products = await _userService.GetUsersPaging(request);
             return Ok(products);
+        }
+
+        [HttpPost("confirmEmail")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel request)
+        {
+            var result = await _userService.ConfirmEmail(request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         private ClaimsPrincipal ValidateToken(string jwtToken)

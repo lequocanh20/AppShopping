@@ -2,6 +2,7 @@
 using AppShopping_Data.Entities;
 using AppShopping_ViewModels.Common;
 using AppShopping_ViewModels.Systems.Users;
+using EmailService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -323,7 +324,6 @@ namespace AppShopping_Application.Systems.Users
                     await _userManager.RemoveFromRoleAsync(user, roleName);
                 }
             }
-            await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
             /* Khi gán quyền, người dùng bấm lưu lại thì kiểm tra xem role nào đã được chọn
             * Sau đó lấy ra danh sách role đã được chọn ( selected == true )
@@ -360,6 +360,15 @@ namespace AppShopping_Application.Systems.Users
                 return new ApiSuccessResult<bool>();
             }
             return new ApiErrorResult<bool>("Cập nhật không thành công");
+        }
+
+        public async Task<ApiResult<bool>> ConfirmEmail(ConfirmEmailViewModel request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.email);
+            if (user == null)
+                return new ApiErrorResult<bool>($"Không tìm thấy người dùng có email {request.email}");
+            var result = await _userManager.ConfirmEmailAsync(user, request.token);
+            return new ApiSuccessResult<bool>();
         }
     }
 }

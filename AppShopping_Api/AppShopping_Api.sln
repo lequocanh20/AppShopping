@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_Data", "..\AppS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Host", "3. Host", "{24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_AdminApp", "..\AppShopping_AdminApp\AppShopping_AdminApp.csproj", "{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_AdminApp", "..\AppShopping_AdminApp\AppShopping_AdminApp.csproj", "{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShopping_ApiIntegration", "..\AppShopping_ApiIntegration\AppShopping_ApiIntegration.csproj", "{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppShopping_ApiIntegration", "..\AppShopping_ApiIntegration\AppShopping_ApiIntegration.csproj", "{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "..\EmailService\EmailService.csproj", "{1BBB7D74-233B-481A-8EE6-8882ABB27B2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBB7D74-233B-481A-8EE6-8882ABB27B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBB7D74-233B-481A-8EE6-8882ABB27B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBB7D74-233B-481A-8EE6-8882ABB27B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBB7D74-233B-481A-8EE6-8882ABB27B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{4729E630-9A2A-45F2-A795-607C922E3430} = {84FE4262-2C92-4BC8-8480-97FC4690E4A2}
 		{A7027056-B6EC-46A6-BB6D-D0D4AB24CF61} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
 		{031ADC78-6C91-47F3-ACDC-F6BAC26B6FF6} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
+		{1BBB7D74-233B-481A-8EE6-8882ABB27B2A} = {24EE0D3B-3314-4CEA-B5F5-B2FB6A712B3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F435A3A-8A95-41DD-A450-D9D0D779D711}

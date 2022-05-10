@@ -428,3 +428,4 @@ D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_AdminApp\obj\Debug\net5.0\refi
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_AdminApp\obj\Debug\net5.0\AppShopping_AdminApp.pdb
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_AdminApp\obj\Debug\net5.0\AppShopping_AdminApp.genruntimeconfig.cache
 D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_AdminApp\obj\Debug\net5.0\ref\AppShopping_AdminApp.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\AppShopping_AdminApp\obj\Debug\net5.0\Razor\Views\ConfirmEmail\ConfirmedEmail.cshtml.g.cs

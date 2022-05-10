@@ -154,3 +154,8 @@ D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\FluentVal
 D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\MailKit.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\MimeKit.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\EmailService.dll
+D:\Do an\Nam 4\TH Flutter\AppShopping\appShopping_Api\bin\Debug\net5.0\EmailService.pdb
