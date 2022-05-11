@@ -1,4 +1,5 @@
 ﻿using AppShopping_Application.Systems.Users;
+using AppShopping_ViewModels.Catalog.Products;
 using AppShopping_ViewModels.Systems.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -122,6 +123,20 @@ namespace AppShopping_Api.Controllers
             return Ok(allUser);
         }
 
+        
+        [HttpGet("getAllProductFavorite/{token}")]
+        [Authorize]
+        public async Task<IActionResult> GetAllProductFavorite(string token)
+        {
+            var identity = this.ValidateToken(token);
+
+            // Get the claims values
+            Guid userId = Guid.Parse(identity?.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
+                               .Select(c => c.Value).SingleOrDefault());
+            var allProductFavorite = await _userService.GetAllProductFavorite(userId);
+            return Ok(allProductFavorite);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -173,6 +188,40 @@ namespace AppShopping_Api.Controllers
         public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailViewModel request)
         {
             var result = await _userService.ConfirmEmail(request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpPost("addProductFavorite")]
+        [Authorize]
+        public async Task<IActionResult> AddProductFavorite([FromBody] ProductFavoriteCreateRequest request)
+        {
+            var identity = this.ValidateToken(request.Token);
+
+            // Get the claims values
+            Guid userId = Guid.Parse(identity?.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
+                               .Select(c => c.Value).SingleOrDefault());
+            var result = await _userService.AddFavorite(userId, request.ProductId);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpPost("deleteProductFavorite")]
+        [Authorize]
+        public async Task<IActionResult> deleteProductFavorite([FromBody] ProductFavoriteCreateRequest request)
+        {
+            var identity = this.ValidateToken(request.Token);
+
+            // Get the claims values
+            Guid userId = Guid.Parse(identity?.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
+                               .Select(c => c.Value).SingleOrDefault());
+            var result = await _userService.DeleteFavorite(userId, request.ProductId);
             if (!result.IsSuccessed)
             {
                 return BadRequest(result);

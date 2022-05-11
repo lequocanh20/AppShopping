@@ -30,6 +30,7 @@ namespace AppShopping_Data.EF
             builder.ApplyConfiguration(new OrderConfiguration());
             builder.ApplyConfiguration(new OrderDetailConfiguration());
             builder.ApplyConfiguration(new CouponConfiguration());
+            builder.ApplyConfiguration(new FavoriteConfiguration());
 
             builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
 
@@ -41,6 +42,8 @@ namespace AppShopping_Data.EF
             builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
 
             builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+
+            builder.Entity<Favorite>().ToTable("Favorites").HasKey(x => new { x.UserId, x.ProductId });
 
             builder.Seed();
             //base.OnModelCreating(builder);
@@ -54,5 +57,7 @@ namespace AppShopping_Data.EF
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
+
+        public DbSet<Favorite> Favorites { get; set; }
     }
 }

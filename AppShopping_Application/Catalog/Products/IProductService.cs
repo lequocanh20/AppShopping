@@ -33,6 +33,6 @@ namespace AppShopping_Application.Catalog.Products
 
         Task<bool> DecreaseStock(int productId, int quantity);
 
-        Task<int> AddReview(ProductDetailViewModel model);
+        Task<int> AddReview(ProductDetailViewModel model);       
     }
 }

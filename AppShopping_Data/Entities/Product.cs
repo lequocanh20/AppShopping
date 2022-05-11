@@ -22,6 +22,8 @@ namespace AppShopping_Data.Entities
 
         public Category Category { get; set; }
 
+        public List<Favorite> Favorites { get; set; }
+
         public List<OrderDetail> OrderDetails { get; set; }
         public ICollection<Review> Reviews { get; set; }
     }

@@ -14,6 +14,8 @@ namespace AppShopping_Data.Entities
 
         public List<Order> Orders { get; set; }
 
+        public List<Favorite> Favorites { get; set; }
+
         public ICollection<Review> Reviews { get; set; }
     }
 }

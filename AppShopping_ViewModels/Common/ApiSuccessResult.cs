@@ -14,11 +14,6 @@ namespace AppShopping_ViewModels.Common
             ResultObj = resultObj;
         }
 
-        public ApiSuccessResult(List<T> resultObj)
-        {
-            IsSuccessed = true;
-        }
-
         public ApiSuccessResult()
         {
             IsSuccessed = true;

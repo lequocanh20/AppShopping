@@ -1,4 +1,5 @@
-﻿using AppShopping_ViewModels.Common;
+﻿using AppShopping_ViewModels.Catalog.Products;
+using AppShopping_ViewModels.Common;
 using AppShopping_ViewModels.Systems.Users;
 using System;
 using System.Collections.Generic;
@@ -29,5 +30,11 @@ namespace AppShopping_Application.Systems.Users
         Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request);
 
         Task<ApiResult<bool>> ConfirmEmail(ConfirmEmailViewModel request);
+
+        Task<List<ProductViewModel>> GetAllProductFavorite(Guid userId);
+
+        Task<ApiResult<bool>> AddFavorite(Guid userId, int productId);
+
+        Task<ApiResult<bool>> DeleteFavorite(Guid userId, int productId);
     }
 }

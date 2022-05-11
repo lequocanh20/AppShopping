@@ -1,5 +1,6 @@
 ﻿using AppShopping_Data.EF;
 using AppShopping_Data.Entities;
+using AppShopping_ViewModels.Catalog.Products;
 using AppShopping_ViewModels.Common;
 using AppShopping_ViewModels.Systems.Users;
 using EmailService;
@@ -369,6 +370,55 @@ namespace AppShopping_Application.Systems.Users
                 return new ApiErrorResult<bool>($"Không tìm thấy người dùng có email {request.email}");
             var result = await _userManager.ConfirmEmailAsync(user, request.token);
             return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<List<ProductViewModel>> GetAllProductFavorite(Guid userId)
+        {
+            var query = from p in _context.Products
+                        join f in _context.Favorites on p.Id equals f.ProductId where f.UserId == userId
+                        select new { p };
+
+            return await query.Select(x => new ProductViewModel()
+            {
+                Id = x.p.Id,
+                Name = x.p.Name,
+                CategoryId = x.p.CategoryId,
+                Description = x.p.Description,
+                originPrice = x.p.originPrice,
+                Price = x.p.Price,
+                Stock = x.p.Stock,
+                ProductImage = x.p.ProductImage
+            }).ToListAsync();
+        }
+
+        public async Task<ApiResult<bool>> AddFavorite(Guid userId, int productId)
+        {
+            var checkProductFavoriteExist = _context.Favorites.Where(x => x.UserId == userId && x.ProductId == productId).FirstOrDefault();
+            if (checkProductFavoriteExist == null)
+            {
+                var productFavorite = new Favorite()
+                {
+                    UserId = userId,
+                    ProductId = productId
+                };
+                _context.Favorites.Add(productFavorite);
+                await _context.SaveChangesAsync();
+                return new ApiSuccessResult<bool>();
+            }
+            return new ApiErrorResult<bool>("Sản phẩm này đã nằm trong danh sách yêu thích của bạn");
+        }
+
+        public async Task<ApiResult<bool>> DeleteFavorite(Guid userId, int productId)
+        {
+            var checkProductFavoriteExist = _context.Favorites.Where(x => x.UserId == userId && x.ProductId == productId).FirstOrDefault();
+            if (checkProductFavoriteExist != null)
+            {
+                var productFavorite = _context.Favorites.Where(x => x.UserId == userId && x.ProductId == productId).FirstOrDefault();
+                _context.Favorites.Remove(productFavorite);
+                await _context.SaveChangesAsync();
+                return new ApiSuccessResult<bool>();
+            }
+            return new ApiErrorResult<bool>();            
         }
     }
 }
